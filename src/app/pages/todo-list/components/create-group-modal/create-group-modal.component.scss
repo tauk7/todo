@@ -1,0 +1,24 @@
+.mat-select-panel {
+  &.ng-animating {
+    visibility: hidden;
+  }
+}
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 1em;
+}
+
+mat-selection-list{
+  max-height: 10em;
+}

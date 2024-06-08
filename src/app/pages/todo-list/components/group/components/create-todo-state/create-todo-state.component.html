@@ -1,0 +1,19 @@
+<mat-card>
+  <h2 mat-dialog-title>Create State Modal</h2>
+  <mat-dialog-content>
+    <form [formGroup]="stateForm" class="form-field-line">
+        <app-text-input label="Name" type="text" placeholder="Name" [control]="this.nameControl" [required]="true"></app-text-input>
+        <mat-label>Choose index</mat-label>
+        <mat-select formControlName="step">
+          @for (step of steps; track steps) {
+            <mat-option [value]="step">{{step}}</mat-option>
+          }
+        </mat-select>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button (click)="onSubmit()">Criar</button>
+  </mat-dialog-actions>
+
+</mat-card>

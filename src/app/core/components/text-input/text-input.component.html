@@ -1,0 +1,9 @@
+  <mat-form-field appearance="outline"  [style]="style">
+    <mat-label>{{ label }}</mat-label>
+    <input matInput [type]="type" [placeholder]="placeholder" [formControl]="control" [required]="required">
+    @if(control?.invalid && control?.touched) {
+      <mat-error>
+        Please enter a valid {{ label }}
+      </mat-error>
+    }
+  </mat-form-field>

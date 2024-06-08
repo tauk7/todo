@@ -1,0 +1,10 @@
+<mat-card>
+  <h4 mat-dialog-title class="dialog-title">Confirm your action</h4>
+  <mat-dialog-content class="dialog-content">
+    <p>Are you sure you want to proceed with this action?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="warn" mat-dialog-close (click)="confirmDialog()">Delete</button>
+  </mat-dialog-actions>
+</mat-card>

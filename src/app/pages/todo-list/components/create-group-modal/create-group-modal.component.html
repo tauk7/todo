@@ -1,0 +1,21 @@
+<mat-dialog-content class="dialog-content">
+
+  <form [formGroup]="groupForm" class="form-field-line">
+      <app-text-input label="Name" type="text" placeholder="Name" [control]="this.nameControl" [required]="true"></app-text-input>
+      <mat-selection-list formControlName="users" disableRipple>
+        @for (user of users; track users) {
+            <mat-list-option [value]="user?.id">{{user?.name}}</mat-list-option>
+        }
+      </mat-selection-list>
+    @if(groupForm.hasError('invalid')){
+      <mat-error>
+        Incorrect email or password
+      </mat-error>
+    }
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-flat-button mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="groupForm.invalid">Create</button>
+</mat-dialog-actions>

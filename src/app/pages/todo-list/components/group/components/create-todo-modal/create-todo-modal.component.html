@@ -1,0 +1,25 @@
+<mat-card>
+  <h2 mat-dialog-title>Create Todo Modal</h2>
+  <mat-dialog-content>
+    <form [formGroup]="todoForm" class="form-field-line">
+      <app-text-input label="Title" type="text" placeholder="Title" [control]="titleControl" [required]="true"></app-text-input>
+      <app-text-input label="Description" type="text" placeholder="Description" [control]="descriptionControl" [required]="true"></app-text-input>
+
+      <mat-select formControlName="state">
+        @for (state of states; track states) {
+          <mat-option [value]="state.id">{{state.name}}</mat-option>
+        }
+      </mat-select>
+        <mat-selection-list formControlName="users" disableRipple>
+          @for (user of users; track users) {
+              <mat-list-option [value]="user?.id">{{user?.name}}</mat-list-option>
+          }
+        </mat-selection-list>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button (click)="onSubmit()">Criar</button>
+  </mat-dialog-actions>
+
+</mat-card>

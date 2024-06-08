@@ -1,0 +1,61 @@
+.form-field-line {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.user-id {
+  font-size: 0.9em;
+  color: gray;
+}
+
+
+.user-name {
+  flex-grow: 1;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+mat-checkbox {
+  margin-left: auto;
+}
+
+mat-card {
+  width: 30em;
+  padding: 1em;
+}
+
+mat-selection-list{
+  max-height: 10em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+mat-card-title {
+  margin-bottom: 1em;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .user-name {
+    flex: 1;
+    text-align: left;
+  }
+
+
+  .user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

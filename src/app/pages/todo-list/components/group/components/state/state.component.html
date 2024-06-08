@@ -1,0 +1,26 @@
+<div class="header-container">
+    <div class="flex-container">
+      <div class="flex-item">
+        <mat-label>{{state?.name}}</mat-label>
+      </div>
+      <div align="end" class="flex-item">
+        <button mat-icon-button color="primary" (click)="changeEditState()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </div>
+</div>
+<div class="todos-container"  cdkDropList [cdkDropListData]="state" (cdkDropListDropped)="dropTodo($event)">
+  @for(todo of todos; track todos) {
+    <div class="todo" cdkDrag [cdkDragData]="todo">
+      <p>
+        {{todo.title}}
+        @if(todo.done){
+          <mat-icon class="check">check</mat-icon>
+        }
+      </p>
+      <button mat-button (click)="openTodoModal(todo)"> edit </button>
+      <button mat-button (click)="viewTodoModal(todo)"> view </button>
+    </div>
+  }
+</div>

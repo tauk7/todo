@@ -1,0 +1,27 @@
+
+
+<div class="todo-container">
+  <mat-card class="mat-elevation-z8 flex-card">
+    <mat-card-header>
+      <mat-card-title>Todo List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex-content">
+      <form [formGroup]="selectFormControl">
+        <mat-form-field appearance="fill">
+          <mat-label>Group</mat-label>
+          <mat-select class="list-item" formControlName="group" (selectionChange)="setGroup($event.value)">
+            @for (group of groups; track groups) {
+              <mat-option [value]="group.id" class="list-item-content">
+                {{group.name}}
+              </mat-option>
+          }
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <app-group class="group-container" (deleteGroupEvent)="deleteGroup()" [group]="group"></app-group>
+    </mat-card-content>
+    <mat-card-footer class="flex-footer">
+      <button mat-flat-button color="primary" (click)="createGroup()">Create Group</button>
+    </mat-card-footer>
+  </mat-card>
+</div>

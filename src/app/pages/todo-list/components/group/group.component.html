@@ -1,0 +1,23 @@
+<mat-card class="group-container">
+    <div cdkDropListGroup class="state-container">
+      <div cdkDropListGroup [cdkDropListData]="states" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" class="state-item">
+        @for(state of states; track states) {
+            <mat-card cdkDrag class="state">
+              <mat-card-content>
+                <app-state (deleteEvent)="deleteState(state.id)"  [state]="state" [states]="states"></app-state>
+              </mat-card-content>
+            </mat-card>
+        }
+      </div>
+    </div>
+    <mat-card-footer>
+      <div class="button-container">
+        @if(canEditGroup) {
+          <button mat-flat-button color="primary" (click)="createTodo()">Create Todo</button>
+          <button mat-flat-button color="primary" (click)="createState()">Create State</button>
+          <button mat-flat-button (click)="openEditModal()"> Edit Group </button>
+        }
+      </div>
+    </mat-card-footer>
+
+</mat-card>

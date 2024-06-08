@@ -1,0 +1,40 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  min-width: 40%;
+  padding: 1em;
+}
+
+mat-card-content {
+  margin-top: 1em;
+}
+
+app-text-input {
+  width: 100%;
+}
+
+button {
+  width: 35vw;
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  display: grid;
+  justify-content: center;
+}

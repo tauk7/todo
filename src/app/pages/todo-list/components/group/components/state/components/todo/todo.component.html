@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-dialog-content>
+    @if(onlyView) {
+      <h2>{{todo.title}}</h2>
+      <mat-label>Description</mat-label>
+      <p class="description">{{todo.description}}</p>
+      <mat-checkbox [checked]="todo.done" disabled>Done</mat-checkbox>
+    } @else {
+      <form [formGroup]="todoForm" class="form-field-line">
+          <app-text-input label="Title" type="text" placeholder="Title" [control]="titleControl" [required]="true"></app-text-input>
+          <app-text-input label="Description" type="text" placeholder="Description" [control]="descriptionControl" [required]="true"></app-text-input>
+
+          <div class="line-form">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-select formControlName="state">
+                @for (state of states; track states) {
+                  <mat-option [value]="state.id">{{state.name}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox formControlName="done">Done</mat-checkbox>
+          </div>
+          <mat-selection-list formControlName="users" disableRipple>
+            @for (user of users; track users) {
+                <mat-list-option [value]="user.id">{{user.name}}</mat-list-option>
+            }
+          </mat-selection-list>
+      </form>
+    }
+    @for(log of todoLogs; track todoLogs){
+      <p>{{log.description}} - {{log.user_id}} - {{log.created_at}}</p>
+    }
+  </mat-dialog-content>
+  @if(!onlyView){
+    <mat-dialog-actions>
+      <button mat-icon-button color="warn" (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button mat-dialog-close (click)="onSubmit()">Editar</button>
+    </mat-dialog-actions>
+  }
+</mat-card>
